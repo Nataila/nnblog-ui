@@ -1,0 +1,13 @@
+root = true
+
+[*.{py,go}]
+indent_style = space
+indent_size = 4
+
+[*.{html,sass,scss,xml,json,js,less,css,coffee,json,styl,jade,wxml,json,svg,pug,md,vue,jsp}]
+indent_style = space
+indent_size = 2
+
+[*.bat]
+indent_style = tab
+indent_size = 4
