@@ -1,5 +1,6 @@
 import Axios from "axios";
 import { BASE_URL } from "../consts";
+import { message } from 'antd';
 
 const axios = Axios.create();
 
@@ -46,6 +47,7 @@ axios.interceptors.request.use(config => {
 // });
 
 function handleResponse(response) {
+  console.log(123123)
   return response.data;
 }
 
@@ -53,7 +55,14 @@ export function httpPost(api, data = {}) {
   data = {
     ...data
   };
-  return axios.post(api, data).then(handleResponse)
+  return axios.post(api, data)
+    .then(handleResponse)
+    .catch(error => {
+      console.log(error)
+      error.response.data.errors.forEach(item => {
+        message.error(item.msg);
+      })
+    })
 }
 
 export function httpDelete(api, data = {}) {

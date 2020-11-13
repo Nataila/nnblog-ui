@@ -12,7 +12,7 @@ export default function ArticleDetail() {
 
   async function fetchData() {
     const res = await httpGet(`/article/detail/${id}/`);
-    setArticle(res.article);
+    setArticle(res.data.article);
     document.querySelectorAll("pre code").forEach(block => {
       try{hljs.highlightBlock(block);}
       catch(e){console.log(e);}

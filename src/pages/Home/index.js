@@ -30,7 +30,7 @@ export default function Home(props) {
 
   async function fetchData() {
     const res = await httpGet(API.ARTICLE.LIST);
-    setArticle(res.articles);
+    setArticle(res.data.articles);
     document.querySelectorAll("pre code").forEach(block => {
       try{hljs.highlightBlock(block);}
       catch(e){console.log(e);}

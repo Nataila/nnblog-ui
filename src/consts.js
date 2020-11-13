@@ -8,7 +8,7 @@
 export const BASE_URL = process.env.REACT_APP_API_URI;
 
 export const API = {
-  LOGIN: '/login/',
+  LOGIN: '/account/login/',
   ARTICLE: {
     LIST: '/article/list/',
     NEW: '/article/new/',

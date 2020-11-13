@@ -6,7 +6,7 @@ import {
   Link
 } from "react-router-dom";
 
-import { Layout, Form, Input, Modal, Button } from 'antd';
+import { message, Layout, Form, Input, Modal, Button } from 'antd';
 
 import Home from './pages/Home';
 import Admin from './pages/Admin';
@@ -32,12 +32,12 @@ export default function App() {
 
   async function onFinish(values) {
     const res = await httpPost(API.LOGIN, values)
-    if (!!res.ok) {
-      localStorage.setItem('userInfo', JSON.stringify(res.data));
+    if (res !== undefined) {
+      localStorage.setItem('userInfo', JSON.stringify(res.data.data));
       setVisible(false);
-      setConfirmLoading(false);
-      setUser(res.data);
+      setUser(res.data.data);
     }
+    setConfirmLoading(false);
   };
 
   const onFinishFailed = errorInfo => {
