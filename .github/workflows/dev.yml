@@ -16,12 +16,10 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - uses: borales/actions-yarn@v2.3.0
-        with:
-          cmd: install # will run `yarn install` command
-      - uses: borales/actions-yarn@v2.3.0
-        with:
-          cmd: build # will run `yarn build` command 
+      - name: yarn install build
+        npm install yarn -g
+        yarn
+        yarn build
       # Deploy
       - name: Deploy
         uses: easingthemes/ssh-deploy@v2.0.7
