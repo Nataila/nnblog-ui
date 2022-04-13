@@ -8,6 +8,7 @@ import {
   Route,
   useRouteMatch
 } from "react-router-dom";
+import UpdatePage from './UpdatePage';
 
 export default function Home() {
   let { path } = useRouteMatch();
@@ -15,6 +16,9 @@ export default function Home() {
       <Switch>
         <Route exact path={path}>
           <ArticleList />
+        </Route>
+        <Route path={`${path}/update/:id`}>
+          <UpdatePage />
         </Route>
         <Route path={`${path}/new/`}>
           <NewBlog />

@@ -7,9 +7,10 @@ import 'highlight.js/styles/default.css';
 import { httpGet } from '../../../helper/request.js';
 
 function ArticleItems (props) {
+  console.log(props.articles)
   const items = props.articles.map(item =>
     <div key={item._id.$oid}>
-      <Link to={`/admin/${item._id.$oid}` }>{item.title}</Link>
+      <Link to={`/admin/update/${item._id.$oid}` }>{item.title}</Link>
       {/*<div dangerouslySetInnerHTML = {{ __html:item.content }}></div>*/}
     </div>
   )
@@ -23,7 +24,7 @@ export default function ArticleList() {
   useEffect(() => {
     async function fetchData() {
       const res = await httpGet('/article/list/');
-      setArticle(res.articles);
+      setArticle(res.data.articles);
       document.querySelectorAll("pre code").forEach(block => {
         try{hljs.highlightBlock(block);}
         catch(e){console.log(e);}

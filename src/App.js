@@ -132,7 +132,7 @@ export default function App() {
         </Switch>
         </UserContext.Provider>
       </div>
-      <div id="footer">footer</div>
+      <div id="footer"><a href="https://beian.miit.gov.cn/" target="_blank">京ICP备19050261号-1</a></div>
     </div>
     </Router>
   );
